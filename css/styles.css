@@ -35,7 +35,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #9c27c1;
+    color: #00CED1 ;
     outline: 0;
 }
 
@@ -81,7 +81,7 @@ p {
 }
 
 .text-primary {
-    color: #9c27b0;
+    color: #00CED1 ;
 }
 
 .modal-content {
