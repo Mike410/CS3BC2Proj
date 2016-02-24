@@ -27,7 +27,7 @@ hr.light {
 }
 
 a {
-    color: #9c27b0;
+    color: #BA55D3;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -77,7 +77,7 @@ p {
 }
 
 .text-dark {
-    color: #111;
+    color: #BA55D3;
 }
 
 .text-primary {
