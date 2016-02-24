@@ -9,7 +9,7 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #FAEBD7;
+    background-color: #a8d6e3;
     color: #FFF0F5;
     webkit-tap-highlight-color: #222;
 }
@@ -27,7 +27,7 @@ hr.light {
 }
 
 a {
-    color: #BA55D3;
+    color: #ffffff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -40,10 +40,12 @@ a:focus {
 }
 
 h1,h2,h3,h4,h5,h6 {
+    color: #ffffff;
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
 }
 
 p {
+    color: #ffffff;
     font-size: 17px;
     line-height: 1.7;
     margin-bottom: 20px;
@@ -54,12 +56,13 @@ p {
 }
 
 .icon-lg {
+    color: #ffffff;
     font-size: 50px;
     line-height: 18px;
 }
 
 .bg-primary {
-    background-color: #333;
+    background-color: #c0efde;
 }
 
 .bg-dark {
@@ -73,15 +76,15 @@ p {
 }
 
 .text-faded {
-    color: rgba(245,245,245,0.7);
+    color: #ffffff;
 }
 
 .text-dark {
-    color: #BA55D3;
+    color: #ffffff;
 }
 
 .text-primary {
-    color: #00CED1 ;
+    color: #ffffff ;
 }
 
 .modal-content {
@@ -369,6 +372,7 @@ textarea {
     position: relative;
     margin: 0 auto;
     max-width: 650px;
+    max-height: 400px;
     overflow:hidden;
 }
 
