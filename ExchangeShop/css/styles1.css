@@ -57,9 +57,7 @@ p {
     margin-bottom: 20px;
 }
 
-.heading{
-    text-align: center;
-}
+
 .wide-space {
     letter-spacing: 1.6px;
 }
@@ -101,6 +99,7 @@ p {
 }
 
 section {
+
     padding: 70px 0;
 }
 
@@ -114,6 +113,9 @@ footer {
 
 .no-padding {
     padding: 0;
+}
+.heading{
+    padding-left: 100px;
 }
 
 .navbar-default {
