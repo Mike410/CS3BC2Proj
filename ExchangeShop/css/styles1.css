@@ -7,9 +7,11 @@ body {
     height: 100%;
 }
 
+
+
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #a8d6e3;
+    background-color: #008080;
     color: #FFF0F5;
     webkit-tap-highlight-color: #222;
 }
@@ -24,6 +26,10 @@ hr {
 
 hr.light {
     border-color: #fff;
+}
+{
+    margin-left: 100px;
+
 }
 
 a {
@@ -51,6 +57,9 @@ p {
     margin-bottom: 20px;
 }
 
+.heading{
+    text-align: center;
+}
 .wide-space {
     letter-spacing: 1.6px;
 }
@@ -118,7 +127,7 @@ footer {
 
 .navbar-header > .navbar-brand {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    color: #000000;
+    color: #9c27b0;
     padding: 15px;
     -webkit-transition: padding .2s ease-in;
     -moz-transition: padding .2s ease-in;
@@ -140,7 +149,7 @@ footer {
 .navbar-default .nav > li>a,
 .navbar-default .nav>li>a:focus {
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 700;
     color: #eee;
 }
