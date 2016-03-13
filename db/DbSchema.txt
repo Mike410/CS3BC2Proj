@@ -1,0 +1,53 @@
+Ethnic Exchange Database Schema
+
+
+
+user(id, password, email) PRIMARY KEY (id)
+
+deliveryAddress(deliveryID, userID, fname, lname, houseno, street, postcode, town, state, country) PRIMARY KEY (deliveryID, userID)
+																							FOREIGN KEY(userID) REFERENCES user(id)
+
+productLine(id, name, desc, price) PRIMARY KEY (id)
+
+productCustomise(id, productLineID, size, colour) PRIMARY KEY (id) FOREIGN KEY (productLineID) REFERENCES productLine(id)
+
+order(id, customiseID, amount, supplierID) PRIMARY KEY (id) FOREIGN KEY(customiseID) REFERENCES productCustomise(id)
+															FOREIGN KEY(supplierID) REFERENCES supplier(id)
+
+purchase(userID, orderID, datetime, value) PRIMARY KEY (orderID, userID) FOREIGN KEY(userID) REFERENCES user(id) 
+																		FOREIGN KEY (orderID) REFERENCES order(id)
+
+supplier(id, userID) PRIMARY KEY (id) FOREIGN KEY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
