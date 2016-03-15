@@ -41,7 +41,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #00CED1 ;
+    color: red ;
     outline: 0;
 }
 
@@ -56,6 +56,7 @@ p {
     line-height: 1.7;
     margin-bottom: 20px;
 }
+.
 
 .products {
     padding-top: 100px;
@@ -64,6 +65,7 @@ p {
 .heading{
     text-align: center;
 }
+
 .wide-space {
     letter-spacing: 1.6px;
 }
@@ -103,9 +105,23 @@ p {
 .modal-content {
     background-color: #1d1d1d;
 }
+.back-button {
+    font-color: #ffffff;
+    font-size: 20px;
+    padding-left: 70px;
+}
+.ethnic-exchange {
+    font-color: #ffffff;
+    font-size: 40px;
+    padding-left: 400px;
+    padding-top: 145px;
+}
+
+
+
 
 section {
-    padding: 70px 0;
+    padding: 50px 0;
 }
 
 aside {
@@ -128,6 +144,7 @@ footer {
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
     transition: all .4s;
+    max-height: 120px;
 }
 
 .navbar-header > .navbar-brand {
@@ -145,33 +162,9 @@ footer {
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-    background-color: #181818;
+    background-color: red;
 }
 .navbar-default .navbar-toggle, .navbar-default .navbar-collapse {
     border-color: transparent;
 }
 
-.navbar-default .nav > li>a,
-.navbar-default .nav>li>a:focus {
-    text-transform: uppercase;
-    font-size: 15px;
-    font-weight: 700;
-    color: #eee;
-}
-
-.navbar-default .nav > li>a:hover,
-.navbar-default .nav>li>a:focus:hover {
-    color: #9c27b0;
-}
-
-.navbar-default .nav > li.active>a,
-.navbar-default .nav>li.active>a:focus {
-    color: #9c27b0 !important;
-    background-color: transparent;
-}
-
-.navbar-default .nav > li.active>a:hover,
-.navbar-default .nav>li.active>a:focus:hover
-{
-    background-color: transparent;
-}

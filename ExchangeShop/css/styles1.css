@@ -60,6 +60,9 @@ p {
     position: static;
     padding-top:0px;
 }
+.back-button{
+    font-size: 15px;
+}
 
 
 .wide-space {
@@ -100,6 +103,17 @@ p {
 
 .modal-content {
     background-color: #1d1d1d;
+}
+.back-button {
+    font-color: #ffffff;
+    font-size: 20px;
+    padding-left: 70px;
+}
+.ethnic-exchange {
+    font-color: #ffffff;
+    font-size: 40px;
+    padding-left: 400px;
+    padding-top: 145px;
 }
 
 section {
@@ -155,7 +169,7 @@ footer {
 .navbar-default .nav > li>a,
 .navbar-default .nav>li>a:focus {
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 700;
     color: #eee;
 }
@@ -276,6 +290,42 @@ header .header-content .inner p {
 
 #video-background.collapsing {
   display:none;
+}
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+.profiler{
+    font-color: black;
 }
 
 footer {
