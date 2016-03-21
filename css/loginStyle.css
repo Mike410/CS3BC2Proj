@@ -62,7 +62,7 @@ fieldset {
   border-radius: 5px;
   padding-top: 5px;
 }
-.formholder input[type="email"], .formholder input[type="password"] {
+.formholder input[type="text"], .formholder input[type="password"] {
   padding: 7px 5px;
   margin: 10px 0;
   width: 96%;
@@ -76,11 +76,11 @@ fieldset {
   -o-transition: 0.3s linear;
   transition: 0.3s linear;
 }
-.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
+.formholder input[type="text"]:focus, .formholder input[type="password"]:focus  {
   outline: none;
   box-shadow: 0 0 1px 1px #000000
 }
-.formholder input[type="submit"] {
+.formholder button {
   background: #1abc9c;
   padding: 10px;
   font-size: 20px;
@@ -90,7 +90,7 @@ fieldset {
   color: #fff;
   border-radius: 5px;
 }
-.formholder input[type="submit"]:hover {
+.formholder button:hover {
   background: #1bc6a4;
 }
 

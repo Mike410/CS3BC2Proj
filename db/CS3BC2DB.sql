@@ -4,7 +4,13 @@
 --
 -- Table structure for db
 --
-CREATE TABLE IF NOT EXISTS user (id int NOT NULL, email VARCHAR(30) NOT NULL, pword VARCHAR(20) NOT NULL, PRIMARY KEY (id) );
+CREATE TABLE IF NOT EXISTS `users` (
+`user_id` INT( 5 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`username` VARCHAR( 25 ) NOT NULL ,
+`email` VARCHAR( 35 ) NOT NULL ,
+`password` VARCHAR( 50 ) NOT NULL ,
+UNIQUE (`email`)
+) ENGINE = INNODB ;
 
 CREATE TABLE IF NOT EXISTS deliveryAddress (deliveryID int NOT NULL, userID int NOT NULL, fName VARCHAR(20) NOT NULL,
  		lName VARCHAR(20) NOT NULL, houseno int NOT NULL, street VARCHAR(20) NOT NULL, postcode VARCHAR(10), town VARCHAR(15), 
@@ -33,7 +39,7 @@ CREATE TABLE IF NOT EXISTS supplier (id int NOT NULL, userID int NOT NULL, PRIMA
 -- Addition of FOREIGN KEYS
 --
 
-ALTER TABLE deliveryAddress ADD FOREIGN KEY (userID) REFERENCES user(id);
+ALTER TABLE deliveryAddress ADD FOREIGN KEY (userID) REFERENCES users(user_id);
 
 ALTER TABLE subCategory ADD FOREIGN KEY (categoryID) REFERENCES category(id);
 
@@ -42,7 +48,7 @@ ALTER TABLE products ADD FOREIGN KEY (subCategoryID) REFERENCES subCategory(id);
 ALTER TABLE orders ADD FOREIGN KEY(productID) REFERENCES products(id);
 ALTER TABLE orders ADD FOREIGN KEY(supplierID) REFERENCES supplier(id);
 
-ALTER TABLE purchase ADD FOREIGN KEY(userID) REFERENCES user(id);
+ALTER TABLE purchase ADD FOREIGN KEY(userID) REFERENCES users(user_id);
 ALTER TABLE purchase ADD FOREIGN KEY (orderID) REFERENCES orders(id);
 
 -- --------------------------------------------------------
@@ -51,10 +57,10 @@ ALTER TABLE purchase ADD FOREIGN KEY (orderID) REFERENCES orders(id);
 -- Data Dump for table `user`
 --
 
-INSERT INTO user Values (1, 'user1@gmail.com', 'password1');
-INSERT INTO user Values (2, 'user2@gmail.com', 'password2');
-INSERT INTO user Values (3, 'user3@gmail.com', 'password3');
-INSERT INTO user Values (4, 'user4@gmail.com', 'password4');
+INSERT INTO users (username,email,password) Values ('user1', 'user1@gmail.com', 'password1');
+INSERT INTO users (username,email,password) Values ('user2', 'user2@gmail.com', 'password2');
+INSERT INTO users (username,email,password) Values ('user3', 'user3@gmail.com', 'password3');
+INSERT INTO users (username,email,password) Values ('user4', 'user4@gmail.com', 'password4');
 
 -- --------------------------------------------------------
 
