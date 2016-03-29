@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Michael Burns">
 
     <title>The Exchange</title>
 
@@ -20,7 +19,6 @@
     <link href="css/style1.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -31,14 +29,13 @@
 <body>
 
     <!-- Navigation -->
-  <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
-        
-                        <div id="wrap">
-                        <div id="regbar">
-                        <div id="navthing">
-                         <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
-                        <div class="login">
-                        <div class="arrow-up"></div>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div id="wrap">
+        <div id="regbar">
+          <div id="navthing">
+           <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
+                <div class="login">
+                    <div class="arrow-up"></div>
                         <div class="formholder">
                          <div class="randompad">
                              <fieldset>
@@ -47,18 +44,15 @@
                                  <label name="password">Password</label>
                                  <input type="password" />
                                  <input type="submit" value="Login" />
- 
-                                       </fieldset>
-                                    </div>
-                                  </div>
-                                </div>
-                                </div>
-                              </div>
-                            </div>
-                <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-                    <script src="js/index.js"></script>
-                    
+                            </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+             </div>
+        </div>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="js/index.js"></script>            
     </nav>
 
     <!-- Page Content -->
@@ -101,35 +95,33 @@
         </div>
         <!-- /.row -->
 
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
+        <?php
+            include "../db/dbConstants.php";
+            $con = new mysqli(SERVER, USER, PASS, DB) or die("Unable to connect, please try again later.");
+            $sql = "SELECT * FROM category";
+            $result = $con->query($sql);
 
+            echo "<form method =GET action = subcategory.php>";
+            echo '<div class="row">';
 
-        <hr>
+        if(($result->num_rows > 0)){
+            while($row = mysqli_fetch_array($result))
+            {
+                $id = $row['id'];
+                echo '<div class="col-md-3 portfolio-item">
+                        <a href=subcategory.php?id='.$id.'&name='.$row["name"].'>
+                            <img class="img-responsive" src="'.$row["name"].'.jpg" alt="need a pic">
+                        </a>
+                    </div>';
+            }
+            echo "</div></form>";
+        }
+        else {
+                echo "<br>No categories found";
+            }
 
-        <!-- Pagination -->
+            mysqli_close($con);
+        ?>
         <!-- /.row -->
 
 

@@ -6,20 +6,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Michael Burns">
 
-    <title>Shop Item - Start Bootstrap Template</title>
+    <title>Subcategory Listing</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/shop-item.css" rel="stylesheet">
-    <link href="css/styles2.css" rel="stylesheet">
+    <link href="css/4-col-portfolio.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
 
-
+    <!-- Custom CSS -->
+    <link href="css/styles1.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,22 +30,14 @@
 </head>
 
 <body>
-
     <!-- Navigation -->
-     <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
-         <h1>
-                        <a class="ethnic-exchange" href="shopLanding.html">The Ethnic Exchange</a>
-                    </h1>
-                    <h6>
-                        <a class="back-button" href="shopProductType-Clothing.html">Back</a>
-                    </h6>
-        
-                        <div id="wrap">
-                        <div id="regbar">
-                        <div id="navthing">
-                         <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
-                        <div class="login">
-                        <div class="arrow-up"></div>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div id="wrap">
+        <div id="regbar">
+          <div id="navthing">
+           <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
+                <div class="login">
+                    <div class="arrow-up"></div>
                         <div class="formholder">
                          <div class="randompad">
                              <fieldset>
@@ -55,76 +46,85 @@
                                  <label name="password">Password</label>
                                  <input type="password" />
                                  <input type="submit" value="Login" />
- 
-                                       </fieldset>
-                                    </div>
-                                  </div>
-                                </div>
-                                </div>
-                              </div>
-                            </div>
-                <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-                    <script src="js/index.js"></script>
-                    
+                            </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+             </div>
+        </div>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="js/index.js"></script>            
     </nav>
 
+
     <!-- Page Content -->
-    <div class="container">
 
+        <?php
+            include "../db/dbConstants.php";
+            $con = new mysqli(SERVER, USER, PASS, DB) or die("Unable to connect, please try again later.");
 
+            $catID = $_GET["id"];
+            $catname = $_GET["name"];
+            $sql = "SELECT * FROM subCategory";
+            $result = $con->query($sql);
+
+            //Page Heading
+            echo '<div class="container">
+                    <div class="well well-sm">
+                        <div id="heading2">
+                            <h1> <b>'.$catname.'</b></h1>
+                        </div>
+                    </div>';
+
+            echo '<div class="row">';
+
+        if(($result->num_rows > 0)){
+            while($row = mysqli_fetch_array($result))
+            {
+                if ($row['categoryID']== $catID){
+                    $id = $row['id'];
+                    echo '<div class="col-md-3 portfolio-item">
+                            <a href=productList.php?id='.$id.'&name='.$row["name"].'>
+                                <img class="img-responsive" src="'.$row["name"].'.jpg" alt="need a pic">
+                            </a>'
+                            .$row["name"].'
+                        </div>';
+                }
+            }
+            echo "</div></form>";
+        }
+        else {
+                echo "<br>No categories found";
+            }
+
+            mysqli_close($con);
+        ?>
+
+        <!-- Projects Row -->
         <div class="row">
-    <div class="well well-sm">
-        <div id="heading2">
-        <h1> <b>Pants</b></h1>
-    </div>
-    </div>
-
-            <div class="col-md-3">
-                <h2 class="lead">Other Products by Ashon</h2>
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
+            <div class="col-md-3 portfolio-item">
+                <a href="shopProductList.html">
+                    <img class="img-responsive" src="pants.jpg" alt="">
+                </a>
             </div>
-
-            <div class="col-md-9">
-
-                <div class="thumbnail">
-                    <img class="img-responsive" src="SpecificPants1Description.jpg" alt="">
-                    <div class="caption-full">
-                        <h4 class="pull-right">€25.00</h4>
-                        <h4><a href="#">Print Harem Pants</a>
-                        </h4>
-                        <p> These colourful harem pants are hand-made by Ashon in Kenya.</p>
-                        <p> No two pairs are the same!.</p>
-                    </div>
-                    <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 stars
-                        </p>
-                    </div>
-                </div>
-
-                
-
+            <div class="col-md-3 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="scarves.jpg" alt="">
+                </a>
             </div>
-
+            <div class="col-md-3 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                </a>
+            </div>
+            <div class="col-md-3 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                </a>
+            </div>
         </div>
-
-    </div>
-    <!-- /.container -->
-
-    <div class="container">
-
-        <hr>
+        <!-- /.row -->
 
         <!-- Footer -->
         <footer id="footer">

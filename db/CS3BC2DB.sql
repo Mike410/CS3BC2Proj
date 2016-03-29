@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS category (id VARCHAR(10) NOT NULL, name VARCHAR(20) N
 CREATE TABLE IF NOT EXISTS subCategory (id VARCHAR(10) NOT NULL, categoryID VARCHAR(10) NOT NULL, 
 	name VARCHAR(20) NOT NULL, img longblob, PRIMARY KEY (id) );
 
-CREATE TABLE IF NOT EXISTS products(id VARCHAR(10) NOT NULL, subCategoryID VARCHAR(10) NOT NULL, description TEXT NOT NULL,
-		price int NOT NULL, PRIMARY KEY (id) );
+CREATE TABLE IF NOT EXISTS products(id VARCHAR(10) NOT NULL, subCategoryID VARCHAR(10) NOT NULL, name VARCHAR(20) NOT NULL, description TEXT NOT NULL,
+		price int NOT NULL, supplierID int NOT NULL, PRIMARY KEY (id) );
 
 CREATE TABLE IF NOT EXISTS orders (id VARCHAR(10) NOT NULL, productID VARCHAR(10) NOT NULL, orderAmount int NOT NULL, 
 	supplierID int NOT NULL, PRIMARY KEY (id) );
@@ -119,14 +119,14 @@ INSERT INTO subcategory Values ('ACCESSORY4', 'CAT004', 'Canes', LOAD_FILE('../I
 -- Data Dump for table `products`
 --
 
-INSERT INTO products Values ('PROD001', 'CLOTHING01', 'Kikoy Shirt', 15);
-INSERT INTO products Values ('PROD002', 'CLOTHING01', 'Linen Shirt', 15);
-INSERT INTO products Values ('PROD003', 'CLOTHING02', 'Kikoy Shorts', 15);
-INSERT INTO products Values ('PROD004', 'CLOTHING02', 'Linen Shorts', 15);
-INSERT INTO products Values ('PROD005', 'CLOTHING03', 'Kikoy TShirt', 15);
-INSERT INTO products Values ('PROD006', 'CLOTHING03', 'Linen Shirt', 15);
-INSERT INTO products Values ('PROD007', 'CLOTHING04', 'Kikoy Skirts', 15);
-INSERT INTO products Values ('PROD008', 'CLOTHING04', 'Linen Skirts', 15);
+INSERT INTO products Values ('PROD001', 'CLOTHING01', 'Kikoy Shirt','Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
+INSERT INTO products Values ('PROD002', 'CLOTHING01', 'Linen Shirt','Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
+INSERT INTO products Values ('PROD003', 'CLOTHING02', 'Kikoy Shorts','Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
+INSERT INTO products Values ('PROD004', 'CLOTHING02', 'Linen Shorts','Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
+INSERT INTO products Values ('PROD005', 'CLOTHING03', 'Kikoy TShirt','Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
+INSERT INTO products Values ('PROD006', 'CLOTHING03', 'Linen Shirt','Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
+INSERT INTO products Values ('PROD007', 'CLOTHING04', 'Kikoy Skirts','Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
+INSERT INTO products Values ('PROD008', 'CLOTHING04', 'Linen Skirts', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 15, 1);
 
 
 -- --------------------------------------------------------
