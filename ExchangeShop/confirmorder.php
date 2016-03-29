@@ -1,3 +1,19 @@
+<?php
+session_start();
+include_once '../db/dbconnect.php';
+
+if(!isset($_SESSION['user']))
+{
+ header("Location: ../index.php");
+}
+
+if(isset($_SESSION['user'])!="")
+{
+    $res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
+    $userRow=mysql_fetch_array($res);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,13 +110,13 @@
                         echo '<div class="item  col-xs-12 col-md-9">
                                 <div class="thumbnail">';
                         if ($small >0){
-                             echo 'You have ordered '.$small.' x '.$row["name"].'<br>';
+                             echo 'You have ordered '.$small.' x small '.$row["name"].'<br>';
                                }
                         if ($medium >0){
-                           echo 'You have ordered '.$medium.' x '.$row["name"].'<br>';
+                           echo 'You have ordered '.$medium.' x medium '.$row["name"].'<br>';
                        }
                         if ($large >0){
-                           echo 'You have ordered '.$large.' x '.$row["name"].'<br>';
+                           echo 'You have ordered '.$large.' x large '.$row["name"].'<br>';
                         }
                         echo '</div>
                             </div>';

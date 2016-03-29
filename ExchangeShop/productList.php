@@ -1,3 +1,19 @@
+<?php
+session_start();
+include_once '../db/dbconnect.php';
+
+if(!isset($_SESSION['user']))
+{
+ header("Location: ../index.php");
+}
+
+if(isset($_SESSION['user'])!="")
+{
+    $res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
+    $userRow=mysql_fetch_array($res);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,29 +47,31 @@
 <body>
 <!-- Navigation -->
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
-        <div id="wrap">
-        <div id="regbar">
-          <div id="navthing">
-           <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
-                <div class="login">
-                    <div class="arrow-up"></div>
+        
+                        <div id="wrap">
+                        <div id="regbar">
+                        <div id="navthing">
+                            <h2><a href="userProfile.html">Hi <?php echo $userRow['username']; ?> | <a href="signout.php">Logout</a></h2>        
+                        <div class="login">
+                        <div class="arrow-up"></div>
                         <div class="formholder">
                          <div class="randompad">
                              <fieldset>
-                                 <label name="email">Email</label>
-                                 <input type="email" value="example@example.com" />
-                                 <label name="password">Password</label>
-                                 <input type="password" />
-                                 <input type="submit" value="Login" />
-                            </fieldset>
-                        </div>
-                      </div>
-                    </div>
-                 </div>
-             </div>
-        </div>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src="js/index.js"></script>            
+                                 <input type="text" name='email' placeholder="Your Email" />
+                                 <input type="password" name= 'pass' placeholder= 'Your password' />
+                                 <button type="submit" name="btn-login">Sign In</button>
+ 
+                                       </fieldset>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+                    <script src="js/index.js"></script>
+                    
     </nav>
 
     <!-- Page Content -->

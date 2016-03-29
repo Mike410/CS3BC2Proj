@@ -1,3 +1,33 @@
+<?php
+session_start();
+include_once 'db/dbconnect.php';
+
+if(isset($_SESSION['user'])!="")
+{
+ $res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
+ $userRow=mysql_fetch_array($res);
+}
+if(isset($_POST['btn-login']))
+{
+ $email = mysql_real_escape_string($_POST['email']);
+ $upass = mysql_real_escape_string($_POST['pass']);
+ $res=mysql_query("SELECT * FROM users WHERE email='$email'");
+ $row=mysql_fetch_array($res);
+ if($row['password']==md5($upass))
+ {
+  $_SESSION['user'] = $row['user_id'];
+  header("Location: index.php");
+
+ }
+ else
+ {
+  ?>
+        <script>alert('The e-mail or password you entered was incorrect! Please try again.');</script>
+        <?php
+ }
+ 
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,17 +63,22 @@
                         <div id="wrap">
                         <div id="regbar">
                         <div id="navthing">
-                         <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
+                        <?php if(isset($_SESSION['user'])!="") : ?>
+                            <h2><a href="ExchangeShop/userProfile.html">Hi <?php echo $userRow['username']; ?></> | <a href="ExchangeShop/signout.php">Logout</a></h2>
+                        <?php else : ?>
+
+                 
+                         <h2><a href="#" id="loginform">Login</a> | <a href="ExchangeShop/register.php">Register</a></h2>
+                        <?php endif; ?>
                         <div class="login">
                         <div class="arrow-up"></div>
                         <div class="formholder">
                          <div class="randompad">
+                         <form method="post">
                              <fieldset>
-                                 <label name="email">Email</label>
-                                 <input type="email" value="example@example.com" />
-                                 <label name="password">Password</label>
-                                 <input type="password" />
-                                 <input type="submit" value="Login" />
+                                 <input type="text" name='email' placeholder="Your Email" />
+                                 <input type="password" name= 'pass' placeholder= 'your password' />
+                                 <button type="submit" name="btn-login">Sign In</button>
  
                                        </fieldset>
                                     </div>
@@ -67,11 +102,17 @@
                 <h1 class="cursive">The Ethnic Exchange</h1>
                 <h4>Connecting You to The Wider World.</h4>
                 <hr><!--HERES THE VIDEO-->
-                <a href="ExchangeShop/shopLanding.html" class="btn btn-primary btn-xl page-scroll">Go To The Exchange</a>
+                <?php if(isset($_SESSION['user'])!="") : ?>
+                            <a href="ExchangeShop/shopLanding.php" class="btn btn-primary btn-xl page-scroll">Go To The Exchange</a>
+                        <?php else : ?>
+
+                 
+                         <a href="ExchangeShop/register.php" class="btn btn-primary btn-xl page-scroll">Register For The Exchange</a>
+                        <?php endif; ?>
             </div>
         </div>
         <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="MarketVideo.jpg" id="video-background">
-            <source src="MarketVideo.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+            <source src="images/MarketVideo.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
         </video>
     </header>
 
@@ -119,7 +160,7 @@
             <div class="row no-gutter">
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="PersonOne.jpg">
-                        <img src="PersonOneCropped.jpg" alt="Image 1">
+                        <img src="images/PersonOneCropped.jpg" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
@@ -131,7 +172,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="Bangles.jpg">
-                        <img src="BanglesCropped.jpg" alt="Image 1">
+                        <img src="images/BanglesCropped.jpg" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
@@ -143,7 +184,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="KikoyBro.jpg">
-                        <img src="KikoyBroCropped.jpg" alt="Image 1">
+                        <img src="images/KikoyBroCropped.jpg" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
@@ -155,7 +196,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="MarketSouthAfrica.jpg">
-                        <img src="MarketSouthAfricaCropped.jpg" alt="Image 1">
+                        <img src="images/MarketSouthAfricaCropped.jpg" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
@@ -167,7 +208,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="CraftsmanIndia.jpg">
-                        <img src="CraftsmanIndiaCropped.jpg" alt="Image 1">
+                        <img src="images/CraftsmanIndiaCropped.jpg" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
@@ -179,7 +220,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="IndianBags.jpg">
-                        <img src="IndianBagsCropped.jpg" alt="Image 1">
+                        <img src="images/IndianBagsCropped.jpg" alt="Image 1">
                         <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
