@@ -103,7 +103,7 @@ if(isset($_SESSION['user'])!="")
 
                         echo '<div class="item  col-xs-6">
                                 <div class="thumbnail">
-                                    <img class="group list-group-image" src="'.$row["name"].'" alt="" />
+                                    <img class="group list-group-image" src="Images/'.$row["name"].'.png" alt="" />
                                         <div class="caption">
                                             <h4 class="group inner list-group-item-heading">'.$row["name"].'</h4>
                                             <p class="group inner list-group-item-text">'.$row["description"].'</p><br>
