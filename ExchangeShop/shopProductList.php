@@ -48,7 +48,7 @@ if(isset($_SESSION['user'])!="")
 
     <!-- Custom CSS -->
     <link href="css/4-col-portfolio.css" rel="stylesheet">
-    <link href="css/styles2.css" rel="stylesheet">
+    <link href="css/styles1.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -100,11 +100,13 @@ if(isset($_SESSION['user'])!="")
                     
     </nav>
     <!-- Page Content -->
-    <div class="container">
-    <div class="well well-sm">
-        <div id="heading2">
-        <h1> <b>Pants</b></h1>
-    </div>
+    <div class="row">
+        <div id="heading">
+            <div class="col-lg-12">
+                 <h1 class="page-header"> <b>'.$catname.'</b></h1>
+                 <a class="back-button" href="/CS3BC2Proj/ExchangeShop/shopLanding.php#">Back</a>
+            </div>
+        </div>
     </div>
     <div id="products" class="row list-group">
         <div class="item  col-xs-4 col-lg-4">

@@ -258,13 +258,12 @@ if(isset($_POST['btn-login']))
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="margin-top-0 wow fadeIn">Get in Touch</h2>
-                    <hr class="primary">
-                    <h3> support@theethnicexhange.com</h3>
-                    <br>
-                    <h3> www.facebook.com/theethnicexchange</h3>
-                    <br>
-                    <h3> Twitter: @theEthnicEthnicExhange</h3>
+                    <h1 class="margin-top-0 wow fadeIn">Get in Touch</h1>
+                    <ul class="list-inline">
+                    <li><a rel="nofollow" href="" title="Twitter"><i class="icon-lg ion-social-twitter-outline"></i></a>&nbsp;</li>
+                      <li><a rel="nofollow" href="" title="Facebook"><i class="icon-lg ion-social-facebook-outline"></i></a>&nbsp;</li>
+                      <li><a rel="nofollow" href="" title="Dribble"><i class="icon-lg ion-social-dribbble-outline"></i></a></li>
+                  </ul>
                 </div>
                 
             </div>

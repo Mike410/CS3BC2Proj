@@ -30,11 +30,15 @@ if(isset($_SESSION['user'])!="")
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
     <link href="css/4-col-portfolio.css" rel="stylesheet">
+    <link href="css/styles1.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/styles1.css" rel="stylesheet">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +78,7 @@ if(isset($_SESSION['user'])!="")
                     <script src="js/index.js"></script>
                     
     </nav>
-
+      <div class="container">
 
     <!-- Page Content -->
 
@@ -87,12 +91,15 @@ if(isset($_SESSION['user'])!="")
             $sql = "SELECT * FROM subCategory";
             $result = $con->query($sql);
 
+
             //Page Heading
-            echo '<div class="container">
-                    <div class="well well-sm">
-                        <div id="heading2">
-                            <h1> <b>'.$catname.'</b></h1>
+            echo '<div class="row">
+                    <div id="heading">
+                        <div class="col-lg-12">
+                            <h1 class="page-header"> <b>'.$catname.'</b></h1>
+                            <a class="back-button" href="/CS3BC2Proj/ExchangeShop/shopLanding.php">Back</a>
                         </div>
+                    </div>
                     </div>';
 
             echo '<div class="row">';
@@ -104,7 +111,7 @@ if(isset($_SESSION['user'])!="")
                     $id = $row['id'];
                     echo '<div class="col-md-3 portfolio-item">
                             <a href=productList.php?id='.$id.'&name='.$row["name"].'>
-                                <img class="img-responsive" src="Images/'.$row["name"].'.png" alt="need a pic">
+                                <img class="img-responsive" src="'.$row["name"].'.jpg" alt="need a pic">
                             </a>'
                             .$row["name"].'
                         </div>';

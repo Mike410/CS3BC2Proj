@@ -30,8 +30,11 @@ if(isset($_SESSION['user'])!="")
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
     <link href="css/4-col-portfolio.css" rel="stylesheet">
-    <link href="css/styles2.css" rel="stylesheet">
+    <link href="css/styles1.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -73,6 +76,7 @@ if(isset($_SESSION['user'])!="")
                     <script src="js/index.js"></script>
                     
     </nav>
+      <div class="container">
 
     <!-- Page Content -->
         
@@ -85,12 +89,14 @@ if(isset($_SESSION['user'])!="")
                 $sql = "SELECT * FROM products";
                 $result = $con->query($sql);
 
-                echo '<div class="container">
-                        <div class="well well-sm">
-                            <div id="heading2">
-                             <h1> <b>'.$scatname.'</b></h1>
-                            </div>
-                        </div>';
+                echo '<div class="row">
+                    <div id="heading">
+                        <div class="col-lg-12">
+                            <h1 class="page-header"> <b>'.$scatname.'</b></h1>
+                            <a class="back-button" href="/CS3BC2Proj/ExchangeShop/subcategory.php">Back</a>
+                        </div>
+                    </div>
+                    </div>';
 
                 echo '<div id="products" class="row list-group">';
                 echo '<div class="row">';
@@ -101,26 +107,15 @@ if(isset($_SESSION['user'])!="")
                     if ($row['subCategoryID']== $scatID){
                         $id = $row['id'];
 
-                        echo '<div class="item  col-xs-6">
-                                <div class="thumbnail">
-                                    <img class="group list-group-image" src="Images/'.$row["name"].'.png" alt="" />
-                                        <div class="caption">
-                                            <h4 class="group inner list-group-item-heading">'.$row["name"].'</h4>
-                                            <p class="group inner list-group-item-text">'.$row["description"].'</p><br>
-                                            <div class="row">
-                                            <div class="col-xs-12 col-md-6">
-                                                <p class="lead">€'.$row["price"].'</p>
-                                            </div>
-                                            <div class="col-xs-12 col-md-6">
-                                                <a class="btn btn-success" href="productpage.php?id='.$row["id"].'&name='.$row["name"].'">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                             </div>';
-                    }
+                      echo '<div class="col-md-3 portfolio-item">
+                            <a href=productList.php?id='.$id.'&name='.$row["name"].'>
+                                <img class="img-responsive" src="'.$row["name"].'.jpg" alt="need a pic">
+                            </a>'
+                            .$row["name"].'
+                        </div>';
                 }
-                echo "</div>";
+            }
+            echo "</div></form>";
             }
             else {
                     echo "<br>No categories found";
@@ -132,7 +127,7 @@ if(isset($_SESSION['user'])!="")
 
         <!-- Footer -->
         <footer id="footer">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Information</h4>

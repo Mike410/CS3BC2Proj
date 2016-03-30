@@ -11,8 +11,8 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #6d6d6d;
-    color: #FFF0F5;
+    background-color: #40E0D0;
+    color: #FFF;
     webkit-tap-highlight-color: #222;
 }
 
@@ -62,6 +62,13 @@ p {
 }
 .back-button{
     font-size: 15px;
+}
+.products {
+    padding-top: 100px;
+}
+
+.heading{
+    text-align: center;
 }
 
 
@@ -126,6 +133,7 @@ aside {
 }
 
 footer {
+
     padding: 15px;
 }
 
@@ -147,7 +155,7 @@ footer {
 
 .navbar-header > .navbar-brand {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    color: #9c27b0;
+    color: #000000;
     padding: 15px;
     -webkit-transition: padding .2s ease-in;
     -moz-transition: padding .2s ease-in;
@@ -176,7 +184,7 @@ footer {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #9c27b0;
+    color: #80c865;
 }
 
 .navbar-default .nav > li.active>a,

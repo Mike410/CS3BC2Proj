@@ -47,6 +47,9 @@ if(isset($_SESSION['user'])!="")
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
     <link href="css/4-col-portfolio.css" rel="stylesheet">
     <link href="css/styles1.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
@@ -99,7 +102,7 @@ if(isset($_SESSION['user'])!="")
             <div class="col-lg-12">
                 <h1 class="page-header">The Ethnic Exchange
                 </h1>
-                <a class="back-button" href="/index.html">Back</a>
+                <a class="back-button" href="/index.php">Back</a>
             </div>
             </div>
         </div>
@@ -108,7 +111,7 @@ if(isset($_SESSION['user'])!="")
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-3 portfolio-item">
-                <a href="shopProductType-Clothing.html">
+                <a href="#">
                     <img class="img-responsive" src="clothing.jpg" alt="">
                 </a>
             </div>
@@ -145,7 +148,7 @@ if(isset($_SESSION['user'])!="")
                 $id = $row['id'];
                 echo '<div class="col-md-3 portfolio-item">
                         <a href=subcategory.php?id='.$id.'&name='.$row["name"].'>
-                            <img class="img-responsive" src="Images/'.$row["name"].'.png" alt="need a pic">
+                            <img class="img-responsive" src="'.$row["name"].'.jpg" alt="need a pic">
                         </a>
                     </div>';
             }
