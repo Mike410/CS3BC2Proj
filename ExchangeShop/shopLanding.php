@@ -148,7 +148,7 @@ if(isset($_SESSION['user'])!="")
                 $id = $row['id'];
                 echo '<div class="col-md-3 portfolio-item">
                         <a href=subcategory.php?id='.$id.'&name='.$row["name"].'>
-                            <img class="img-responsive" src="'.$row["name"].'.jpg" alt="need a pic">
+                            <img class="img-responsive" src="Images/'.$row["name"].'.png" alt="need a pic">
                         </a>
                     </div>';
             }
