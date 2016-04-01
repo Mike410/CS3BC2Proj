@@ -14,7 +14,6 @@ if(isset($_SESSION['user'])!="")
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,11 +30,12 @@ if(isset($_SESSION['user'])!="")
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/shop-item.css" rel="stylesheet">
-    <link href="css/styles2.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <link href="css/4-col-portfolio.css" rel="stylesheet">
+    <link href="css/styles1.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
-
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -80,53 +80,6 @@ if(isset($_SESSION['user'])!="")
 
 
     <!-- Page Content -->
-    <div class="container">
-
-
-        <div class="row">
-        <div class="well well-sm">
-            <div id="heading2">
-            <h1> <b>Pants</b></h1>
-            </div>
-        </div>
-
-            <div class="col-md-3">
-                <h2 class="lead">Other Products by Ashon</h2>
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
-                </div>
-            </div>
-
-            <div class="col-md-9">
-
-                <div class="thumbnail">
-                    <img class="img-responsive" src="SpecificPants1Description.jpg" alt="">
-                    <div class="caption-full">
-                        <h4 class="pull-right">€25.00</h4>
-                        <h4><a href="#">Print Harem Pants</a>
-                        </h4>
-                        <p> These colourful harem pants are hand-made by Ashon in Kenya.</p>
-                        <p> No two pairs are the same!.</p>
-                    </div>
-                    <div class="ratings">
-                        <p class="pull-right">3 reviews</p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 stars
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
         <?php
                 include "../db/dbConstants.php";
                 $con = new mysqli(SERVER, USER, PASS, DB) or die("Unable to connect, please try again later.");
@@ -199,7 +152,7 @@ if(isset($_SESSION['user'])!="")
 
         <!-- Footer -->
         <footer id="footer">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-sm-3 column">
                     <h4>Information</h4>
@@ -230,7 +183,6 @@ if(isset($_SESSION['user'])!="")
             </div>
         </div>
     </footer>
-
     </div>
     <!-- /.container -->
 

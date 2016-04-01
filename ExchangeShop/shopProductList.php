@@ -12,24 +12,8 @@ if(isset($_SESSION['user'])!="")
     $res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
     $userRow=mysql_fetch_array($res);
 }
-// if(isset($_POST['btn-login']))
-// {
-//  $email = mysql_real_escape_string($_POST['email']);
-//  $upass = mysql_real_escape_string($_POST['pass']);
-//  $res=mysql_query("SELECT * FROM users WHERE email='$email'");
-//  $row=mysql_fetch_array($res);
-//  if($row['password']==md5($upass))
-//  {
-//   $_SESSION['user'] = $row['user_id'];
-//   header("Location: ../index.php");
-//  }
-//  else
-//  {
-//   That script alert goes here.
-//  }
- 
-// }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -93,7 +93,6 @@ if(isset($_SESSION['user'])!="")
                     <div id="heading">
                         <div class="col-lg-12">
                             <h1 class="page-header"> <b>'.$scatname.'</b></h1>
-                            <a class="back-button" href="/CS3BC2Proj/ExchangeShop/subcategory.php">Back</a>
                         </div>
                     </div>
                     </div>';
@@ -107,12 +106,26 @@ if(isset($_SESSION['user'])!="")
                     if ($row['subCategoryID']== $scatID){
                         $id = $row['id'];
 
-                      echo '<div class="col-md-3 portfolio-item">
-                            <a href=productList.php?id='.$id.'&name='.$row["name"].'>
-                                <img class="img-responsive" src="Images/'.$row["name"].'.png" alt="need a pic">
-                            </a>'
-                            .$row["name"].'
-                        </div>';
+                        echo '<div class="item  col-xs-12 col-lg-6">
+                                    <div class="thumbnail">
+                                        <img class="group list-group-image" src="Images/'.$row["name"].'.png" alt="" />
+                                        <div class="caption">
+                                            <h4 class="group inner list-group-item-heading">
+                                                '.$row["name"].'</h4>
+                                            <p class="group inner list-group-item-text">'
+                                                .$row["description"].'</p>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-6">
+                                                    <p class="lead">€'
+                                                        .$row["price"].'</p>
+                                                </div>
+                                                <div class="col-xs-12 col-md-6">
+                                                    <a class="btn btn-success" href="productPage.php?id='.$row["id"].'&name='.$row["name"].'">Add to cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>';
                 }
             }
             echo "</div></form>";
@@ -124,6 +137,7 @@ if(isset($_SESSION['user'])!="")
             ?>
         </div>
     </div>
+
 
         <!-- Footer -->
         <footer id="footer">

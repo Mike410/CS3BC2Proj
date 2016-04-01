@@ -12,23 +12,6 @@ if(isset($_SESSION['user'])!="")
     $res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
     $userRow=mysql_fetch_array($res);
 }
-// if(isset($_POST['btn-login']))
-// {
-//  $email = mysql_real_escape_string($_POST['email']);
-//  $upass = mysql_real_escape_string($_POST['pass']);
-//  $res=mysql_query("SELECT * FROM users WHERE email='$email'");
-//  $row=mysql_fetch_array($res);
-//  if($row['password']==md5($upass))
-//  {
-//   $_SESSION['user'] = $row['user_id'];
-//   header("Location: ../index.php");
-//  }
-//  else
-//  {
-//   That script alert goes here.
-//  }
- 
-// }
 ?>
 
 <!DOCTYPE html>
@@ -108,31 +91,6 @@ if(isset($_SESSION['user'])!="")
         </div>
         <!-- /.row -->
 
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="clothing.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="crafts.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
-
         <?php
             include "../db/dbConstants.php";
             $con = new mysqli(SERVER, USER, PASS, DB) or die("Unable to connect, please try again later.");
@@ -146,7 +104,7 @@ if(isset($_SESSION['user'])!="")
             while($row = mysqli_fetch_array($result))
             {
                 $id = $row['id'];
-                echo '<div class="col-md-3 portfolio-item">
+                echo '<div class="col-md-6 portfolio-item">
                         <a href=subcategory.php?id='.$id.'&name='.$row["name"].'>
                             <img class="img-responsive" src="Images/'.$row["name"].'.png" alt="need a pic">
                         </a>

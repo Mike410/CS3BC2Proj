@@ -97,7 +97,6 @@ if(isset($_SESSION['user'])!="")
                     <div id="heading">
                         <div class="col-lg-12">
                             <h1 class="page-header"> <b>'.$catname.'</b></h1>
-                            <a class="back-button" href="/CS3BC2Proj/ExchangeShop/shopLanding.php">Back</a>
                         </div>
                     </div>
                     </div>';
@@ -109,11 +108,10 @@ if(isset($_SESSION['user'])!="")
             {
                 if ($row['categoryID']== $catID){
                     $id = $row['id'];
-                    echo '<div class="col-md-3 portfolio-item">
+                    echo '<div class="col-md-6 portfolio-item">
                             <a href=productList.php?id='.$id.'&name='.$row["name"].'>
                                 <img class="img-responsive" src="Images/'.$row["name"].'.png" alt="need a pic">
-                            </a>'
-                            .$row["name"].'
+                            </a>
                         </div>';
                 }
             }
@@ -126,30 +124,6 @@ if(isset($_SESSION['user'])!="")
             mysqli_close($con);
         ?>
 
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-3 portfolio-item">
-                <a href="shopProductList.html">
-                    <img class="img-responsive" src="pants.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="scarves.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
 
         <!-- Footer -->
         <footer id="footer">

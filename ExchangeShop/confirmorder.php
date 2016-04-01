@@ -24,17 +24,18 @@ if(isset($_SESSION['user'])!="")
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Michael Burns">
 
-    <title>Order Confirmation</title>
+    <title>Product listing</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/shop-item.css" rel="stylesheet">
-    <link href="css/styles2.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <link href="css/4-col-portfolio.css" rel="stylesheet">
+    <link href="css/styles1.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
-
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
