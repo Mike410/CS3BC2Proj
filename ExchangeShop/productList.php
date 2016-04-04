@@ -110,8 +110,8 @@ if(isset($_SESSION['user'])!="")
                                     <div class="thumbnail">
                                         <img class="group list-group-image" src="Images/'.$row["name"].'.png" alt="" />
                                         <div class="caption">
-                                            <h4 class="group inner list-group-item-heading">
-                                                '.$row["name"].'</h4>
+                                            <h3 class="group inner list-group-item-heading">
+                                                '.$row["name"].'</h3>
                                             <p class="group inner list-group-item-text">'
                                                 .$row["description"].'</p>
                                             <div class="row">

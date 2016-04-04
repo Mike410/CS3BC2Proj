@@ -85,7 +85,6 @@ if(isset($_SESSION['user'])!="")
             <div class="col-lg-12">
                 <h1 class="page-header">The Ethnic Exchange
                 </h1>
-                <a class="back-button" href="/index.php">Back</a>
             </div>
             </div>
         </div>

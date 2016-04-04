@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once '../db/dbconnect.php';
+include_once 'dbconnect.php';
 
 if(!isset($_SESSION['user']))
 {
@@ -12,8 +12,8 @@ if(isset($_SESSION['user'])!="")
     $res=mysql_query("SELECT * FROM users WHERE user_id=".$_SESSION['user']);
     $userRow=mysql_fetch_array($res);
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +24,7 @@ if(isset($_SESSION['user'])!="")
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Michael Burns">
 
-    <title>Product Page</title>
+    <title>Order Complete</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -47,8 +47,7 @@ if(isset($_SESSION['user'])!="")
 </head>
 
 <body>
-
-<!-- Navigation -->
+  <!-- Navigation -->
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
         
                         <div id="wrap">
@@ -77,82 +76,36 @@ if(isset($_SESSION['user'])!="")
                     
     </nav>
 
-
-
     <!-- Page Content -->
-    <div class ="container">
-        <?php
-                include "../db/dbConstants.php";
-                $con = new mysqli(SERVER, USER, PASS, DB) or die("Unable to connect, please try again later.");
-
-                $prodID = $_GET["id"];
-                $prodname = $_GET["name"];
-                $sql = "SELECT * FROM products";
-                $result = $con->query($sql);
-
-                echo '<div class="row">
-                    <div id="heading">
-                        <div class="col-lg-12">
-                            <h1 class="page-header"> <b>'.$prodname.'</b></h1>
-                        </div>
-                    </div>
-                    </div>';
-
-                echo '<div id="products" class="row list-group">';
-                echo '<div class="row">';
-
-            if(($result->num_rows > 0)){
-                while($row = mysqli_fetch_array($result))
-                {
-                    if ($row['id']== $prodID){
-                        $id = $row['id'];
-
-                        echo '<div class="item  col-xs-12 col-md-9">
-                                <div class="thumbnail">
-                                    <img class="group list-group-image" src="Images/'.$row["name"].'.png" alt="" />
-                                        <div class="caption">
-                                            <h3 class="group inner list-group-item-heading">'.$row["name"].'</h3>
-                                            <p class="group inner list-group-item-text">'.$row["description"].'</p><br>
-                                            <div class="row">
-                                                <div class="col-xs-12 col-md-9">
-                                                    <p class="lead">€'.$row["price"].'</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                             </div>';
-                    }
-                }
-            }
-            else {
-                    echo "<br>No categories found";
-                }
-
-                echo '<div class="col-md-3">
-                        <form action ="confirmOrder.php" method="get">
-                            <div class="form-group">
-                                <div class="form-group">Small:<input type="text"  class="form-control" name="small"></div>
-                                <div class="form-group">Medium:<input type="text"  class="form-control" name="medium"></div>
-                                <div class="form-group">Large:<input type="text"  class="form-control" name="large"></div>
-                                <div class="form-group"><input type="hidden"  class="form-control" value ="'.$prodID.'" name="id"></div>
-                            </div>
-                        <button class="btn btn-success" type="submit">Order!</button>
-                        </form>
-                        </div>';
-
-                mysqli_close($con); 
-            ?>
+<div class ="container">
+    <div class="row">
+        <div id="heading">
+            <div class="col-lg-12">
+                 <h1 class="page-header"><b>Thank You!</b></h1>
+            </div>
         </div>
     </div>
 
-    </div>
-    <!-- /.container -->
+        <div class="item  col-xs-12 col-lg-12">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="Images/ashan.jpg" alt=""/>
+                <div class="caption">
+                    <h3 class="group inner list-group-item-heading">
+                        Your Order is being processed</h3>
+                        <a style ="float:right" class="btn btn-success" href = "../index.php">Home</a>
+                    <p>
+                        Your order is being prepared by Ashon in Melindi, Kenya.</p>
+                        
+                    
+                </div>
 
-    <div class="container">
+            </div>
+        </div>
+</div>
 
-        <hr>
 
-        <!-- Footer -->
+
+       <!-- Footer -->
         <footer id="footer">
         <div class="container">
             <div class="row">

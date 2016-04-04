@@ -45,13 +45,17 @@ a:focus {
     outline: 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    color: #ffffff;
+h1,h2,h4,h5,h6 {
+    color: white;
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
 }
 
+.footer h3,h4,h5,h6 {
+    color: white;
+    }
+
 p {
-    color: #ffffff;
+    color: black;
     font-size: 17px;
     line-height: 1.7;
     margin-bottom: 20px;

@@ -76,7 +76,7 @@ if(isset($_SESSION['user'])!="")
     </nav>
 
     <!-- Page Content -->
-
+    <div class="container">
         <?php
                 include "../db/dbConstants.php";
                 $con = new mysqli(SERVER, USER, PASS, DB) or die("Unable to connect, please try again later.");
@@ -92,12 +92,13 @@ if(isset($_SESSION['user'])!="")
                 $result = $con->query($sql);
                 $result2 = $con->query($sql2);
 
-                echo '<div class="container">
-                        <div class="well well-sm">
-                            <div id="heading2">
-                             <h1> <b>Order Confirmation</b></h1>
-                            </div>
-                        </div>';
+                echo '<div class="row">
+                        <div id="heading">
+                        <div class="col-lg-12">
+                            <h1 class="page-header"> <b>Order Confirmation</b></h1>
+                        </div>
+                    </div>
+                    </div>';
 
                 echo '<div id="products" class="row list-group">';
                 echo '<div class="row">';
@@ -111,13 +112,13 @@ if(isset($_SESSION['user'])!="")
                         echo '<div class="item  col-xs-12 col-md-9">
                                 <div class="thumbnail">';
                         if ($small >0){
-                             echo 'You have ordered '.$small.' x small '.$row["name"].'<br>';
+                             echo '<p>You have ordered '.$small.' x small '.$row["name"].'s </p><br>';
                                }
                         if ($medium >0){
-                           echo 'You have ordered '.$medium.' x medium '.$row["name"].'<br>';
+                           echo '<p>You have ordered '.$medium.' x medium '.$row["name"].'s </p><br>';
                        }
                         if ($large >0){
-                           echo 'You have ordered '.$large.' x large '.$row["name"].'<br>';
+                           echo '<p>You have ordered '.$large.' x large '.$row["name"].'s </p><br>';
                         }
                         echo '</div>
                             </div>';
@@ -125,7 +126,7 @@ if(isset($_SESSION['user'])!="")
                         echo '<div class="col-md-3">
                         <h2>Order Total</h2><br>
                         €'.($row["price"]*($small+$medium+$large)).'
-                        <a class="btn btn-success" href = "complete.html">Order!</a>
+                        <a class="btn btn-success" href = "complete.php">Confirm!</a>
                         </div>';
                     }
                 }
@@ -157,7 +158,7 @@ if(isset($_SESSION['user'])!="")
                         echo '<div class="col-md-3">
                         <h2>Order Total</h2><br>
                         €'.($row["price"]*($small+$medium+$large)).'
-                        <a class="btn btn-success" href = "complete.html">Order!</a>
+                        <a class="btn btn-success" href = "complete.php">Order!</a>
                         </div>';
                     }
                 }
